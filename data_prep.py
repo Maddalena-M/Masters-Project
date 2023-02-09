@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 #Substructure, truthlabel for the fatjet, tagging info
 #Rerun substructure
 
+"""Upload the processed datasets and creates the training and testing samples for the neural network."""
 
 ghh_VR = pd.read_csv("all_values_VR_atan2_h5_ghh.csv", low_memory=False)
 ztt_VR = pd.read_csv("all_values_VR_atan2_h5_ztt.csv", low_memory=False).dropna()
@@ -55,7 +56,7 @@ ztt_VR_training = pd.concat([ztt_VR, qcd_VR_ztt])
 ghh_VRG_training = pd.concat([ghh_VRG, qcd_VRG_ghh])
 ztt_VRG_training = pd.concat([ztt_VRG, qcd_VRG_ztt])
 
-ghh_VR_training = ghh_VR_training.sample(frac=1).reset_index(drop=True)
+ghh_VR_training = ghh_VR_training.sample(frac=1).reset_index(drop=True) #Shuffles dataset
 ztt_VR_training = ztt_VR_training.sample(frac=1).reset_index(drop=True)
 
 ghh_VRG_training = ghh_VRG_training.sample(frac=1).reset_index(drop=True)
